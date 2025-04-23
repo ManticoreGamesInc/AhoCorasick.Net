@@ -1,27 +1,15 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
-# Visual Studio 14
-VisualStudioVersion = 14.0.25123.0
+# Visual Studio Version 17
+VisualStudioVersion = 17.1.32407.343
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "AhoCorasick.Net", "src\AhoCorasick.Net\AhoCorasick.Net.csproj", "{2CAFBA59-090A-42B0-A0C2-F2396E873CCD}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "AhoCorasick.Net.Tests", "tests\AhoCorasick.Net.Tests\AhoCorasick.Net.Tests.csproj", "{992DFF0A-92EF-4AD0-9076-FCB0C1BA99BA}"
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = ".nuget", ".nuget", "{9EBF4F1C-3101-4E65-9A4A-6EBFE4A823F2}"
-	ProjectSection(SolutionItems) = preProject
-		.nuget\NuGet.Config = .nuget\NuGet.Config
-		.nuget\NuGet.exe = .nuget\NuGet.exe
-		.nuget\NuGet.targets = .nuget\NuGet.targets
-		.nuget\packages.config = .nuget\packages.config
-	EndProjectSection
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "build", "build", "{311D94BD-6DCE-46D8-862C-71AB38D19C14}"
-	ProjectSection(SolutionItems) = preProject
-		build\AhoCorasick.Net.nuspec = build\AhoCorasick.Net.nuspec
-		build\AhoCorasick.Net.Source.nuspec = build\AhoCorasick.Net.Source.nuspec
-		build\build.bat = build\build.bat
-		build\build.fsx = build\build.fsx
-	EndProjectSection
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "AhoCorasick.Net.Benchmarks", "benchmarks\AhoCorasick.Net.Benchmarks\AhoCorasick.Net.Benchmarks.csproj", "{EDCDBB7F-11C7-445E-AA07-40DB30D4ED8D}"
 EndProject

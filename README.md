@@ -1,8 +1,8 @@
 AhoCorasick.net
 ================
 
-Efficient and very fast implementation of Aho-Corasick string matching algorithm on .NET  
-TBA
+Efficient and very fast implementation of Aho-Corasick string matching algorithm on .NET 
+Implementation by [alexandrnikitin](https://github.com/alexandrnikitin/AhoCorasick.Net)
 
 Install
 -------
@@ -19,3 +19,9 @@ var botKeywords = new AhoCorasickTree(new[] { "abot", "apachebench", "googlebot"
 var userAgent = "Mozilla/5.0 (Windows NT 6.3; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/39.0.2171.99 Safari/537.36";
 var isBot = botKeywords.Contains(userAgent);
 ```
+
+This Fork
+---------
+
+Updated solution and projects to target .net 8. 
+

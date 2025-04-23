@@ -1,19 +1,21 @@
-﻿using AhoCorasick.Net.Benchmarks.Sandbox;
+﻿using System;
+using System.Collections.Generic;
+using AhoCorasick.Net.Benchmarks.Sandbox;
 
 using BenchmarkDotNet.Attributes;
-using BenchmarkDotNet.Configs;
 using BenchmarkDotNet.Jobs;
 
 namespace AhoCorasick.Net.Benchmarks
 {
-    //[Config(typeof(Config))]
+    [SimpleJob(RuntimeMoniker.Net80, baseline: true, iterationCount: 10, launchCount:3, warmupCount:3, invocationCount: 3, id:nameof(SmallTreeBenchmark))]
     public class SmallTreeBenchmark
     {
-        private const int LengthOfKeyword = 8;
-        private const int NumberOfKeywords = 100;
+        private const int LengthOfKeyword = 15;
+        private const int NumberOfKeywords = 1000;
         private readonly string _keyword;
         private readonly AhoCorasickTree _sut;
         private readonly AhoCorasickTreeHashBased _sut2;
+        private readonly List<string> _list;
 
         public SmallTreeBenchmark()
         {
@@ -25,12 +27,19 @@ namespace AhoCorasick.Net.Benchmarks
             }
             _sut = new AhoCorasickTree(keywords);
             _sut2 = new AhoCorasickTreeHashBased(keywords);
+            _list = new List<string>(keywords);
 
-            _keyword = keywords[0];
+            var pick = new Random().Next(0, keywords.Length);
+            _keyword = keywords[pick];
         }
 
         [Benchmark(Baseline = true)]
-        
+        public bool ContainsSmallWordList()
+        {
+            return _list.Contains(_keyword);
+        }
+
+        [Benchmark]
         public bool ContainsSmallWord()
         {
             return _sut.Contains(_keyword);
@@ -40,22 +49,6 @@ namespace AhoCorasick.Net.Benchmarks
         public bool ContainsSmallWordImproved()
         {
             return _sut2.Contains(_keyword);
-        }
-
-        private class Config : ManualConfig
-        {
-            public Config()
-            {
-                Add(
-                    new Job
-                        {
-                            Platform = Platform.X64,
-                            Jit = Jit.LegacyJit,
-                            LaunchCount = 1,
-                            WarmupCount = 3,
-                            TargetCount = 3,
-                        });
-            }
         }
     }
 }
