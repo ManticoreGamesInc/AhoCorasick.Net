@@ -17,9 +17,6 @@
     <PackageReference Include="BenchmarkDotNet" Version="0.14.0" />
   </ItemGroup>
   <ItemGroup>
-    <None Include="packages.config" />
-  </ItemGroup>
-  <ItemGroup>
     <ProjectReference Include="..\..\src\AhoCorasick.Net\AhoCorasick.Net.csproj"/>
   </ItemGroup>
 </Project>
