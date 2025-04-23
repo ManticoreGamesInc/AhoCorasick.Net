@@ -8,6 +8,13 @@
     <FileAlignment>512</FileAlignment>
     <TargetFramework>net8.0</TargetFramework>
     <GenerateAssemblyInfo>false</GenerateAssemblyInfo>
+    <Version>0.8.0</Version>
+    <PackageId>AhoCorasick.Net</PackageId>
+    <Authors>alexandrnikitin</Authors>
+    <RepositoryUrl>https://github.com/trasa/AhoCorasick.Net</RepositoryUrl>
+    <PackageProjectUrl>https://github.com/trasa/AhoCorasick.Net</PackageProjectUrl>
+    <Description>High-performance Aho-Corasick implementation for .NET</Description>
+    <PackageLicenseExpression>MIT</PackageLicenseExpression>
     <PackageVersion>0.8.0</PackageVersion>
     <PackageReadmeFile>README.md</PackageReadmeFile>
   </PropertyGroup>
