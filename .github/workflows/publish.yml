@@ -1,9 +1,6 @@
 name: Publish NuGet Package
 
 on:
-  push:
-    tags:
-      - 'v0.8.0'
   workflow_dispatch:
   
 jobs:
@@ -11,6 +8,8 @@ jobs:
     runs-on: ubuntu-latest
     steps:
     - uses: actions/checkout@v4
+      with:
+        fetch-depth: 0 # fetch all history for all tags, required for NBGV versioning
 
     - name: setup dotnet
       uses: actions/setup-dotnet@v4
@@ -22,12 +21,6 @@ jobs:
 
     - name: Publish to GitHub Packages
       run: dotnet nuget push **/*.nupkg --source github --api-key ${{ secrets.GITHUB_TOKEN }}
-
-    - name: Upload package as artifact
-      uses: actions/upload-artifact@v4
-      with:
-        name: AhoCorasick.Net.0.8.0
-        path: '**/*.nupkg'
 
     - name: Done
       run: echo "Nuget package published to Github packages"
