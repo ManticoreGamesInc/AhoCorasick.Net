@@ -1,9 +1,6 @@
-﻿using System;
-using System.Collections.Generic;
+﻿using System.Collections.Generic;
 using System.Linq;
-
 using Xunit;
-using Xunit.Extensions;
 
 namespace AhoCorasick.Net.Tests
 {
@@ -26,12 +23,16 @@ namespace AhoCorasick.Net.Tests
             Assert.Equal(expected, sut.Contains(str));
         }
 
-        [Theory]
-        [InlineData(null, typeof(ArgumentNullException))]
-        [InlineData(new string[] { }, typeof(ArgumentException))]
-        public void InvalidKeywords(string[] keywords, Type exceptionType)
+        [Fact]
+        public void EmptyTrees()
         {
-            Assert.Throws(exceptionType, () => new AhoCorasickTree(keywords));
+            var tree = new AhoCorasickTree();
+            Assert.False(tree.Contains("nothing"));
+            Assert.Empty(tree.Search("nothing"));
+
+            tree = new AhoCorasickTree([]);
+            Assert.False(tree.Contains("nothing"));
+            Assert.Empty(tree.Search("nothing"));
         }
 
         [Fact]

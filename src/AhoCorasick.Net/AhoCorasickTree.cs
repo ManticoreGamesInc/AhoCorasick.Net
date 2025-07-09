@@ -8,11 +8,9 @@ namespace AhoCorasick.Net
     {
         private readonly AhoCorasickTreeNode _rootNode;
 
-        public AhoCorasickTree(string[] keywords)
+        public AhoCorasickTree(string[] keywords = null)
         {
-            if (keywords == null) throw new ArgumentNullException("keywords");
-            if (keywords.Length == 0) throw new ArgumentException("should contain keywords");
-
+            keywords ??= [];
             _rootNode = new AhoCorasickTreeNode();
 
             var length = keywords.Length;
